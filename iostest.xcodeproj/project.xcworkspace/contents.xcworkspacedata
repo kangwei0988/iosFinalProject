@@ -1,65 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:.."
-      name = "..">
-      <FileRef
-         location = "group:iostest.xcodeproj">
-      </FileRef>
-      <Group
-         location = "group:iostest"
-         name = "iostest">
-         <Group
-            location = "group:Assets.xcassets"
-            name = "Assets.xcassets">
-            <Group
-               location = "group:AppIcon.appiconset"
-               name = "AppIcon.appiconset">
-               <FileRef
-                  location = "group:Contents.json">
-               </FileRef>
-            </Group>
-            <FileRef
-               location = "group:Contents.json">
-            </FileRef>
-         </Group>
-         <Group
-            location = "group:Preview Content"
-            name = "Preview Content">
-            <Group
-               location = "group:Preview Assets.xcassets"
-               name = "Preview Assets.xcassets">
-               <FileRef
-                  location = "group:Contents.json">
-               </FileRef>
-            </Group>
-         </Group>
-         <Group
-            location = "group:Base.lproj"
-            name = "Base.lproj">
-            <FileRef
-               location = "group:LaunchScreen.storyboard">
-            </FileRef>
-         </Group>
-         <FileRef
-            location = "group:server.crt">
-         </FileRef>
-         <FileRef
-            location = "group:AppDelegate.swift">
-         </FileRef>
-         <FileRef
-            location = "group:ContentView.swift">
-         </FileRef>
-         <FileRef
-            location = "group:Info.plist">
-         </FileRef>
-         <FileRef
-            location = "group:SceneDelegate.swift">
-         </FileRef>
-      </Group>
-   </Group>
    <FileRef
-      location = "self:iostest.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

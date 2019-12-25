@@ -9,7 +9,7 @@
 import Foundation
 
 func getMatched(completion:@escaping ([Event]?) -> Void){
-    let urlStr = "https://ntoumotogo.kangs.idv.tw/iostest?user=kang"
+    let urlStr = "https://ntoumotogo.kangs.idv.tw/getMatch?user=kang"
     let decoder = JSONDecoder()
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -17,7 +17,6 @@ func getMatched(completion:@escaping ([Event]?) -> Void){
     if let url = URL(string: urlStr) {
         URLSession.shared.dataTask(with: url) { (data, response , error) in
             if let data = data, let content = try? decoder.decode([Event].self,from:data){
-                print(content)
                 completion(content)
             }
             else{
@@ -26,3 +25,5 @@ func getMatched(completion:@escaping ([Event]?) -> Void){
         }.resume()
     }
 }
+
+

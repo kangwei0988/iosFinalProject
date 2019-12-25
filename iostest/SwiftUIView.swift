@@ -7,13 +7,39 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct SwiftUIView: View{
+    @State private var events = [Event]()
     var body: some View {
-        getMatched{ (data) in
-            ForEach(data,id:\.self){ (index) in
-                EventRow(event: index)
+        NavigationView {
+            List(events.indices, id: \.self) { (index)  in
+                EventRow(event: self.events[index])
             }
+            .onAppear {
+                Alamofire.request("https://ntoumotogo.kangs.idv.tw/iosLogin",
+                           method: .post,
+                           parameters: ["Account_name": "kang", "_password": "0988"],
+                           encoding: JSONEncoding.default,
+                           headers: nil).responseData { response in
+                    debugPrint(response)
+                }
+//                if self.events.count == 0 {
+//                    print("in")
+//                    getMatched { (data) in
+//                        self.events = data!
+//                    }
+//                }
+                let decoder = JSONDecoder()
+                Alamofire.request("https://ntoumotogo.kangs.idv.tw/getMatch?user=kang").responseData { response in
+                    if let data = response.result.value, let content = try? decoder.decode([Event].self,from:data){
+                        self.events = content
+                        }
+                        else{
+                            print("error")
+                        }
+                    }
+                }
         }
     }
 }
