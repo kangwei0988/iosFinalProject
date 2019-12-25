@@ -8,6 +8,12 @@
 
 import Foundation
 
-struct Event :Codable{
+struct Event :Codable,Identifiable,Hashable{
+    var id : String
     var getOnTime : String
+    var target_id : String
+    var post_location:String
+    var post_goto :String
+    var post_notice:String
+    var sender_name:String
 }

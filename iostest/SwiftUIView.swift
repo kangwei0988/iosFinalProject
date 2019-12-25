@@ -8,10 +8,13 @@
 
 import SwiftUI
 
-let urlString = "http://ntoumotogo.kangs.idv.tw/iostest"
 struct SwiftUIView: View{
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/).onAppear(){getMatched()}
+        getMatched{ (data) in
+            ForEach(data,id:\.self){ (index) in
+                EventRow(event: index)
+            }
+        }
     }
 }
 

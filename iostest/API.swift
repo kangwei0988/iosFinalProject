@@ -8,7 +8,7 @@
 
 import Foundation
 
-func getMatched(){
+func getMatched(completion:@escaping ([Event]?) -> Void){
     let urlStr = "https://ntoumotogo.kangs.idv.tw/iostest?user=kang"
     let decoder = JSONDecoder()
     let dateFormatter = DateFormatter()
@@ -16,11 +16,9 @@ func getMatched(){
     decoder.dateDecodingStrategy = .iso8601
     if let url = URL(string: urlStr) {
         URLSession.shared.dataTask(with: url) { (data, response , error) in
-            if let data = data, let content = try? decoder.decode(Event.self,from:data){
+            if let data = data, let content = try? decoder.decode([Event].self,from:data){
                 print(content)
-                let mydate = dateFormatter.date(from: content.getOnTime)!
-                print(mydate)
-                print(type(of:mydate))
+                completion(content)
             }
             else{
                 print("error")
