@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3366855823B353B700AF3504 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3366855723B353B700AF3504 /* WebViewController.swift */; };
 		3366855B23B3601800AF3504 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3366855A23B3601800AF3504 /* Alamofire */; };
+		3366856323B4855000AF3504 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3366856223B4855000AF3504 /* LoginController.swift */; };
 		39240FDD23B315F300A9183B /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39240FDC23B315F300A9183B /* EventRow.swift */; };
 		393CDD5323B225EB00006102 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393CDD5223B225EB00006102 /* Data.swift */; };
 		393CDD5523B228B000006102 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393CDD5423B228B000006102 /* API.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		3366855723B353B700AF3504 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		3366856223B4855000AF3504 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		39240FDC23B315F300A9183B /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
 		393CDD5223B225EB00006102 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		393CDD5423B228B000006102 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -75,8 +77,9 @@
 				3998740823A091BA00C01B1B /* Assets.xcassets */,
 				3998740D23A091BA00C01B1B /* LaunchScreen.storyboard */,
 				3998741023A091BA00C01B1B /* Info.plist */,
-				3998740A23A091BA00C01B1B /* Preview Content */,
 				39240FDC23B315F300A9183B /* EventRow.swift */,
+				3366856223B4855000AF3504 /* LoginController.swift */,
+				3998740A23A091BA00C01B1B /* Preview Content */,
 			);
 			path = iostest;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				39240FDD23B315F300A9183B /* EventRow.swift in Sources */,
 				393CDD5323B225EB00006102 /* Data.swift in Sources */,
 				3998740523A091B800C01B1B /* SceneDelegate.swift in Sources */,
+				3366856323B4855000AF3504 /* LoginController.swift in Sources */,
 				3366855823B353B700AF3504 /* WebViewController.swift in Sources */,
 				393CDD5523B228B000006102 /* API.swift in Sources */,
 				398BC7A623A0CEA1004B8069 /* SwiftUIView.swift in Sources */,
