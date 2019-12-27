@@ -6,7 +6,7 @@
 //  Copyright © 2019 kang. All rights reserved.
 //
 
-import UIkit
+import UIKit
 import Alamofire
 
 class LoginController: UIViewController {
@@ -22,6 +22,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func login(_ sender: UIButton) {
+        let decoder = JSONDecoder()
         Alamofire.request("https://ntoumotogo.kangs.idv.tw/iosLogin",
                method: .post,
                parameters: ["Account_name": "\(account.text)", "_password": "\(password.text)"],
@@ -34,6 +35,7 @@ class LoginController: UIViewController {
         }
         else{
             print("error")
+        }
         }
     }
     /*

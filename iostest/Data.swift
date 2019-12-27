@@ -22,7 +22,7 @@ struct Login: Encodable {
     let _password: String
 }
 struct loginState :Codable{
-    var stste : String
+    var state : String
 }
 
 let login = Login(Account_name: "kang", _password: "0988")
