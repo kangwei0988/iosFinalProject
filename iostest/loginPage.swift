@@ -14,6 +14,7 @@ struct loginPage: View {
     @State private var account = ""
     @State private var password = ""
     @State private var text = ""
+    @EnvironmentObject var logged : loginState
     var body: some View {
         VStack{
             Form{
@@ -27,10 +28,10 @@ struct loginPage: View {
                            parameters: ["Account_name": "\(self.account)", "_password": "\(self.password)"],
                            encoding: JSONEncoding.default,
                            headers: nil).responseData { response in
-                    if let data = response.result.value, let content = try? decoder.decode(loginState.self,from:data){
-                        if content.state == "login"{
-                            
+                    if let data = response.result.value, let content = try? decoder.decode(logGet.self,from:data){
+                        if content.state == true{
                             print("redirect")
+                            self.logged.state = true
                         }
                         else{
                             self.text = "輸入錯誤"
@@ -58,6 +59,8 @@ struct loginPage: View {
                 .padding(.horizontal, 20)
                 }
                 Text(text)
+            }.onAppear(){
+                print(self.logged.state)
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SocketIO
 
 func getMatched(completion:@escaping ([Event]?) -> Void){
     let urlStr = "https://ntoumotogo.kangs.idv.tw/getMatch?user=kang"
@@ -26,4 +27,7 @@ func getMatched(completion:@escaping ([Event]?) -> Void){
     }
 }
 
+let manager = SocketManager(socketURL: URL(string: "https://ntoumotogo.kangs.idv.tw")!, config: [.log(false), .compress])
+
+let decoder = JSONDecoder()
 
