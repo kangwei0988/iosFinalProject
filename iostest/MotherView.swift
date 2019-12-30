@@ -13,7 +13,7 @@ struct MotherView: View {
     var body: some View {
         VStack{
             if logged.state == true{
-                MainView().environmentObject(logged)
+                MainView().environmentObject(logged)                
             }
             else{
                 loginPage().environmentObject(logged)

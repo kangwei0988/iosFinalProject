@@ -52,8 +52,8 @@ struct DetailView: View {
     var body: some View {
         VStack{
             MapView().frame(width: UIScreen.main.bounds.width, height: 300).environmentObject(location)
-            //                .onAppear(){self.location.startTimer()}
-            //                .onDisappear(){self.location.stopTimer()}
+                            .onAppear(){self.location.startTimer()}
+                            .onDisappear(){self.location.stopTimer()}
             HStack{
                 CircleImage(tarID: info.target_id)
                 Spacer()

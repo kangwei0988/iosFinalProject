@@ -32,7 +32,7 @@ struct logGet :Codable{
 class loginState :ObservableObject{
     @Published var state : Bool
     init() {
-        state = false
+        state = true
     }
 }
 
@@ -49,13 +49,11 @@ struct chatRecord: Codable{
 
 class LocationData:ObservableObject{
     var id : String
-    let decoder = JSONDecoder()
     @Published var location = CLLocationCoordinate2D(latitude: 25, longitude: 121)
     var timer: Timer?
     
     init(id:String) {
         self.id = id
-        let decoder = JSONDecoder()
         Alamofire.request("https://ntoumotogo.kangs.idv.tw/iosReturnLocation",parameters: ["id":id]).responseData { response in
         if let data = response.result.value, let content = try? decoder.decode(Location.self,from:data){
             print("update")
@@ -72,7 +70,7 @@ class LocationData:ObservableObject{
     func startTimer(){
         self.timer=Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
             Alamofire.request("https://ntoumotogo.kangs.idv.tw/iosReturnLocation",parameters: ["id":self.id]).responseData { response in
-                if let data = response.result.value, let content = try? self.decoder.decode(Location.self,from:data){
+                if let data = response.result.value, let content = try? decoder.decode(Location.self,from:data){
                 print("update")
                 print(content.lat)
                 self.location = CLLocationCoordinate2D(
@@ -90,5 +88,37 @@ class LocationData:ObservableObject{
     }
 }
 
+struct Photo: Codable {
+    var content: String
+    var imageName: String
+    
+    var imagePath: String {
+        return PhotoData.documentsDirectory.appendingPathComponent(imageName).path
+    }
+}
+//Created by SHIH-YING PAN
+class PhotoData: ObservableObject {
+
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    @Published var photos = [Photo]() {
+        didSet {
+            if let data = try? PropertyListEncoder().encode(photos) {
+                let url = PhotoData.documentsDirectory.appendingPathComponent("photos")
+                try? data.write(to: url)
+            }
+        }
+    }
+    
+    init() {
+        let url = PhotoData.documentsDirectory.appendingPathComponent("photos")
+        if let data = try? Data(contentsOf: url), let array = try?  PropertyListDecoder().decode([Photo].self, from: data) {
+            photos = array
+        }
+    }
+    
+    
+    
+}
 
 

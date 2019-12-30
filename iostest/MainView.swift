@@ -15,6 +15,15 @@ struct MainView: View {
             SwiftUIView().tabItem{Image(systemName: "music.house.fill")
                 Text("schedual")
             }
+            SettingView().tabItem{Image(systemName: "music.house.fill")
+                Text("setting")
+            }.gesture(RotationGesture().onChanged { angle in
+                print(angle.degrees)
+                    if angle.degrees>90{
+                        self.logged.state=false
+                    }
+                }
+            )
             WebView(request: URLRequest(url: URL(string: "https://ntoumotogo.kangs.idv.tw")!)).tabItem{Image(systemName: "music.house.fill")
                 Text("web")
             }
