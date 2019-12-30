@@ -16,6 +16,7 @@ struct SettingView: View {
     
     var body: some View {
         VStack {
+            Text("my head photo")
             Group {
                 if selectImage == nil {
                     Image(systemName: "photo")
@@ -60,11 +61,7 @@ struct SettingView: View {
             .scaledToFill()
             .frame(width: 200, height: 200)
             .clipped()
-            .sheet(isPresented: $showSelectPhoto) {
-                ImagePickerController(selectImage: self.$selectImage, showSelectPhoto: self.$showSelectPhoto)
-                
-            }
-            
+            Text("long tap it")
         }.onAppear(){
             Alamofire.request("https://ntoumotogo.kangs.idv.tw/iosGetMyPic").responseImage { response in
                 if let img = response.result.value {
@@ -74,6 +71,8 @@ struct SettingView: View {
                     print("wrong")
                 }
             }
+        }.sheet(isPresented: $showSelectPhoto) {
+            ImagePickerController(selectImage: self.$selectImage, showSelectPhoto: self.$showSelectPhoto)
         }
     }
     
